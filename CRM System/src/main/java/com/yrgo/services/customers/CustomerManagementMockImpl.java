@@ -38,7 +38,7 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 	public Customer findCustomerById(String customerId) throws CustomerNotFoundException {
 		Customer customer = customerMap.get(customerId);
 		if (customer == null) {
-			throw new CustomerNotFoundException();
+			throw new CustomerNotFoundException("Customer not found with ID: " + customerId);
 		}
 		return customer;
 	}
