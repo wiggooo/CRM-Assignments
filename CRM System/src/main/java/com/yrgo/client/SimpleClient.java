@@ -18,13 +18,15 @@ import com.yrgo.services.diary.DiaryManagementService;
 public class SimpleClient {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
+        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application-annotation.xml");
 
         CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
         CallHandlingService callService = container.getBean(CallHandlingService.class);
         DiaryManagementService diaryService = container.getBean(DiaryManagementService.class);
 
-        customerService.newCustomer(new Customer("CS03939", "Acme", "Good Customer"));
+        String uniqueId = "CS" + (int)(Math.random() * 100000);
+        customerService.newCustomer(new Customer(uniqueId, "Acme", "Good Customer"));
+
 
         Call newCall = new Call("Larry Wall called from Acme Corp");
         Action action1 = new Action("Call back Larry to ask how things are going", new GregorianCalendar(2016, 0, 0), "rac");
