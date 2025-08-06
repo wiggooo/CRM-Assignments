@@ -2,6 +2,7 @@ package com.yrgo.dataaccess;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
 
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Repository
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
     private JdbcTemplate jdbcTemplate;
 

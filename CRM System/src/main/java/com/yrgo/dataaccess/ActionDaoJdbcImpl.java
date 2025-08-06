@@ -8,9 +8,11 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.yrgo.domain.Action;
 
+@Repository
 public class ActionDaoJdbcImpl implements ActionDao {
 	private static final String DELETE_SQL = "DELETE FROM ACTION WHERE ACTION_ID=?";
 	private static final String UPDATE_SQL = "UPDATE ACTION SET DETAILS=?, COMPLETE=?, OWNING_USER=?, REQUIRED_BY=? WHERE ACTION_ID=?";
