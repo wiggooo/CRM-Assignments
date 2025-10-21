@@ -109,9 +109,12 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
     @Override
     public void update(Customer customerToUpdate) throws RecordNotFoundException {
-        jdbcTemplate.update(UPDATE_SQL, customerToUpdate.getCustomerId(),
-                customerToUpdate.getCompanyName(), customerToUpdate.getTelephone(),
-                customerToUpdate.getEmail(), customerToUpdate.getNotes());
+        jdbcTemplate.update(UPDATE_SQL,
+                customerToUpdate.getCompanyName(),   // 1. COMPANY_NAME
+                customerToUpdate.getEmail(),         // 2. EMAIL
+                customerToUpdate.getTelephone(),     // 3. PHONE
+                customerToUpdate.getNotes(),         // 4. NOTES
+                customerToUpdate.getCustomerId());   // 5. WHERE CUSTOMER_ID
     }
 
     @Override
